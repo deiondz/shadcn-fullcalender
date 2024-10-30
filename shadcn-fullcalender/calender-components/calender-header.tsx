@@ -72,7 +72,7 @@ const CalenderHeader = (props: CalenderHeaderProps) => {
                             formDescription={props.config?.addEventConfig?.formDescription}
                             formTitle={props.config?.addEventConfig?.formTitle}
                             icon={props.config?.addEventConfig?.icon}
-                            variant={props.config?.addEventConfig?.variant}
+
                         />
                         <Tabs
                             activeTab={props.activeTab}

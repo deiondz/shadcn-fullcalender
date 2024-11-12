@@ -1,24 +1,5 @@
-# Vokarenda: Full Calendar Component built with `shadcn/ui`
-
-## Overview
-
-Forked from https://github.com/deiondz/shadcn-fullcalender, and setup with vite.js for create npm package, Thanks [@Deion_Dz](https://x.com/Deion_Dz) for creating base full-calendar component
-
-## Installation
-
-First, add `itokun99/vokarenda` package into project
-
-```
-npm install @itokun99/vokarenda
-```
-
-## Example
-
-Minimal implementation in `src/index.tsx`
-
-```
 import { newevents } from "@/data/events";
-import { Vokarenda } from "@itokun99/vokarenda";
+import { Vokarenda } from "@/index";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
@@ -48,4 +29,3 @@ function App() {
 }
 
 ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
-```

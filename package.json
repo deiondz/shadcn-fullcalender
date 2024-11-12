@@ -1,12 +1,31 @@
 {
-  "name": "oasis",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@itokun99/vokarenda",
+  "version": "0.0.45",
+  "description": "Vokarenda is full-calendar fork from @deiondz",
+  "homepage": "https://github.com/itokun99/shadcn-fullcalender",
+  "author": "Indrawan Lisanto <indrawanlisantopersonal@gmail.com> (https://github.com/itokun99/shadcn-fullcalender)",
+  "repository": {
+    "url": "git+https://github.com/itokun99/shadcn-fullcalender",
+    "type": "git"
+  },
+  "private": false,
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "dev": "vite --config vite.config.ts --port 3000",
+    "build": "tsc -b && vite build --config vite.config.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -48,9 +67,7 @@
     "input-otp": "^1.2.4",
     "jotai": "^2.9.3",
     "lucide-react": "^0.441.0",
-    "next": "^15.0.0",
-    "next-themes": "^0.3.0",
-    "nextjs-toploader": "^3.6.15",
+    "next-themes": "^0.4.3",
     "react": "^18",
     "react-day-picker": "^9.1.3",
     "react-dom": "^18",
@@ -65,11 +82,22 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@eslint/js": "^9.10.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.10.0",
+    "eslint-plugin-react-hooks": "5.1.0-rc-fb9a90fa48-20240614",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "globals": "^15.9.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "typescript-eslint": "^8.4.0",
+    "vite": "^5.4.11",
+    "vite-plugin-dts": "^4.3.0",
+    "vite-tsconfig-paths": "^5.0.1"
   }
 }

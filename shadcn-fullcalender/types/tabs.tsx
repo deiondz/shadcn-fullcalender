@@ -1,1 +1,1 @@
-export type TabTypes = "month" | "year"; // Add more tab types if necessary
+export type TabTypes = "month" | "year" | "week"; // Add more tab types if necessary

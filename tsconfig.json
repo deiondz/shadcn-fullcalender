@@ -18,6 +18,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "dev/**/*"]
-  // "exclude": ["dev/**/*"]
+  "include": ["src/**/*", "dev/**/*"],
+  "exclude": ["dev/**/*"] // comment this line if runing dev for testing components
 }

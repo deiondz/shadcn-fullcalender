@@ -1,12 +1,12 @@
-import { format } from "date-fns";
+import { FullCalendarEvent } from "@/types/event";
+import { isCurrentMonth } from "@/utils/helper";
+import { format, isToday } from "date-fns";
 import React from "react";
 
 export function Eventyearviewbtn(props: {
-  isToday: (arg0: any) => any;
   date: string | number | Date;
-  isCurrentMonth: (arg0: any, arg1: any) => any;
-  index: any;
-  eventsForDate: any[];
+  index?: number;
+  eventsForDate: FullCalendarEvent[];
   onClick?: () => void;
 }) {
   return (
@@ -16,7 +16,7 @@ export function Eventyearviewbtn(props: {
       className={`h-6 w-6 flex items-center justify-center text-xs cursor-pointer text-foreground`}
     >
       <div
-        className={`h-6 aspect-square flex flex-col items-center justify-center rounded-full relative transition-all duration-200 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-700 ${props.isToday(props.date) ? "bg-black text-white" : props.isCurrentMonth(props.date, props.index) ? "" : "text-gray-400"}`}
+        className={`h-6 aspect-square flex flex-col items-center justify-center rounded-full relative transition-all duration-200 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-700 ${isToday(props.date) ? "bg-black text-white" : isCurrentMonth(props.date as Date, props.index) ? "" : "text-gray-400"}`}
       >
         {format(props.date, "d")}
         <div className="flex items-center space-x-[0.2px] justify-center ">

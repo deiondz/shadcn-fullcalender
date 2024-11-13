@@ -63,21 +63,6 @@ const YearView: React.FC<YearViewProps> = ({ currentDate, events }) => {
     return { monthName, dates };
   });
 
-  // Check if a date is today
-  const isToday = (date: Date) => {
-    const today = new Date();
-    return (
-      date.getDate() === today.getDate() &&
-      date.getMonth() === today.getMonth() &&
-      date.getFullYear() === today.getFullYear()
-    );
-  };
-
-  // Check if a date belongs to the current month
-  const isCurrentMonth = (date: Date, month: number) => {
-    return date.getMonth() === month;
-  };
-
   // Create a function to get the events for a specific date
   const getEventsForDate = (date: Date) => {
     const formattedDate = format(date, "yyyy-MM-dd");
@@ -123,8 +108,6 @@ const YearView: React.FC<YearViewProps> = ({ currentDate, events }) => {
                     eventsForDay={eventsForDate}
                     key={date.toString()}
                     eventsForDate={eventsForDate}
-                    isToday={Boolean(isToday)}
-                    isCurrentMonth={Boolean(isCurrentMonth)}
                     date={date}
                     index={index}
                   />

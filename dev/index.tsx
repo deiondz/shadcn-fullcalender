@@ -1,5 +1,5 @@
 import { newevents } from "@/data/events";
-import { Vokarenda } from "@/index";
+import { FullCalendar } from "@/index";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="container mx-auto">
       <div className="grid grid-cols-1">
-        <Vokarenda
+        <FullCalendar
           events={newevents}
           config={{
             addEventConfig: {

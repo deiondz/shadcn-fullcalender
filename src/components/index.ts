@@ -1,3 +1,1 @@
-import { FullCalendar } from "./full-calender";
-
-export { FullCalendar };
+export * from "./full-calendar";

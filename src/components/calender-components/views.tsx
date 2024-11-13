@@ -1,8 +1,11 @@
-import { Card } from "@/ui/card";
+// components/calender-components/Views.tsx
+
+import { Card } from "@/ui/card"; // shadcn Card for structure
 import { MonthView } from "./monthview";
 import YearView from "./yearview";
-import { FullCalendarProps } from "@/types/event";
 import { TabTypes } from "@/types/tabs";
+import { FullCalendarProps } from "@/types/event";
+import { WeekView } from "./weekview";
 import React from "react";
 
 export interface ViewsProps extends FullCalendarProps {
@@ -11,6 +14,9 @@ export interface ViewsProps extends FullCalendarProps {
   currentDate: Date;
 }
 const Views = (props: ViewsProps) => {
+  const isYearView = props.activeTab === "year";
+  const isMonthView = props.activeTab === "month";
+  const isWeekView = props.activeTab === "week";
   return (
     <Card
       className={`transition-all rounded-lg border bg-card duration-300 text-card-foreground shadow-sm p-2 sm:p-4 ${
@@ -20,10 +26,14 @@ const Views = (props: ViewsProps) => {
       }`}
     >
       <div style={{ minWidth: "100%", display: "table" }}>
-        {props.activeTab === "month" ? (
-          <MonthView currentDate={props.currentDate} events={props.events} />
-        ) : (
+        {isYearView && (
           <YearView currentDate={props.currentDate} events={props.events} />
+        )}
+        {isMonthView && (
+          <MonthView currentDate={props.currentDate} events={props.events} />
+        )}
+        {isWeekView && (
+          <WeekView currentDate={props.currentDate} events={props.events} />
         )}
       </div>
     </Card>

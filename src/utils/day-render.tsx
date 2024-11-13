@@ -1,6 +1,5 @@
-import { addDays, format, parseISO } from "date-fns";
-
 import React from "react";
+import { addDays, format, parseISO } from "date-fns";
 import { FullCalendarEvent } from "@/types/event";
 import EventModal from "@/components/event-components/eventmodal";
 import AddEvent from "@/components/calender-components/add-event";
@@ -79,7 +78,7 @@ export const renderDaysInMonth = ({
               {eventsForDay.length > 1 && (
                 <>
                   <EventModal eventdetails={eventsForDay[0]} />
-                  {eventsForDay.length > 2 && (
+                  {eventsForDay.length > 1 && (
                     <ListAllEvents
                       view="day"
                       date={day}

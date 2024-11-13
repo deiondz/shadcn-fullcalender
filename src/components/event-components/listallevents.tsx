@@ -13,19 +13,18 @@ import { CalendarAdd } from "iconsax-react";
 import EventModal from "./eventmodal"; // Importing EventModalProps type
 import { Eventyearviewbtn } from "./yearviewlist";
 import React from "react";
+import { FullCalendarEvent } from "@/types/event";
 
-type Event = {
-  eventname: string;
-  description: string;
-};
+// type Event = {
+//   eventname: string;
+//   description: string;
+// };
 
 type ButtonProps = {
   view: "day" | "year"; // Specify the views available, e.g., "day" or "month"
-  eventsForDay: Event[]; // Array of Event objects
-  eventsForDate?: Event[]; // Optional prop for year view (pass if needed)
+  eventsForDay: FullCalendarEvent[]; // Array of Event objects
+  eventsForDate?: FullCalendarEvent[]; // Optional prop for year view (pass if needed)
   date?: Date; // Optional prop for the date (pass if needed)
-  isToday?: boolean; // Optional boolean for checking if the date is today
-  isCurrentMonth?: boolean; // Optional boolean for checking if the date is in the current month
   index?: number; // Optional index prop (if needed for the year view button)
 };
 
@@ -34,8 +33,6 @@ function ListAllEvents({
   view,
   eventsForDate,
   date,
-  isToday,
-  isCurrentMonth,
   index,
 }: ButtonProps) {
   return (
@@ -52,8 +49,6 @@ function ListAllEvents({
           <Eventyearviewbtn
             key={date?.toString()} // Optional chaining for date
             eventsForDate={eventsForDate || []}
-            isToday={isToday as any}
-            isCurrentMonth={isCurrentMonth as any}
             date={date ?? new Date()}
             index={index}
           />

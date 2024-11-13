@@ -12,7 +12,7 @@ import {
 import EventColoredButton from "./event-colored-button";
 import React from "react";
 
-type ColorScheme = "red" | "blue" | "green" | "default"; // Define the ColorScheme type
+export type ColorScheme = "red" | "blue" | "green" | "default"; // Define the ColorScheme type
 
 type ButtonProps = {
   eventdetails: {
@@ -20,16 +20,22 @@ type ButtonProps = {
     description: string;
     colorScheme?: ColorScheme;
   };
+  trigger?: React.ReactNode;
+  form?: React.ReactNode;
 };
 
-function EventModal({ eventdetails }: ButtonProps) {
+function EventModal({ eventdetails, trigger, form }: ButtonProps) {
   return (
     <Credenza>
       <CredenzaTrigger className="w-full" asChild>
-        <EventColoredButton
-          eventdetails={eventdetails}
-          colorScheme={eventdetails?.colorScheme}
-        />
+        {trigger ? (
+          trigger
+        ) : (
+          <EventColoredButton
+            eventdetails={eventdetails}
+            colorScheme={eventdetails?.colorScheme}
+          />
+        )}
       </CredenzaTrigger>
 
       <CredenzaContent className="max-w-5xl">
@@ -47,7 +53,7 @@ function EventModal({ eventdetails }: ButtonProps) {
 
         {/* Make the EventModal body scrollable */}
         <CredenzaBody className="max-h-[80vh]  overflow-y-auto">
-          <EventForm values={eventdetails} />
+          {form ? form : <EventForm values={eventdetails} />}
         </CredenzaBody>
       </CredenzaContent>
     </Credenza>

@@ -2,13 +2,14 @@ import "../assets/styles/globals.css";
 import { useState } from "react";
 import CalenderHeader from "./calender-components/calender-header";
 import Views from "./calender-components/views";
-import { months } from "../constants";
-import { useAnimationTrigger } from "../hooks/useAnimationTrigger";
-import { useMonthChange } from "../hooks/useMonthChange";
-import { useToday } from "../hooks/useToday";
-import { useYearChange } from "../hooks/useYearChange";
-import { FullCalendarProps } from "../types/event";
-import { TabTypes } from "../types/tabs";
+import { months } from "@/constants";
+import { useAnimationTrigger } from "@/hooks/useAnimationTrigger";
+import { useMonthChange } from "@/hooks/useMonthChange";
+import { useToday } from "@/hooks/useToday";
+import { useYearChange } from "@/hooks/useYearChange";
+import { FullCalendarProps } from "@/types/event";
+import { TabTypes } from "@/types/tabs";
+import { useWeekChange } from "@/hooks/useWeekChange";
 import React from "react";
 
 export const FullCalendar = ({ events, config }: FullCalendarProps) => {
@@ -19,6 +20,14 @@ export const FullCalendar = ({ events, config }: FullCalendarProps) => {
   const { isAnimating, triggerAnimation } = useAnimationTrigger(
     config?.animationConfig?.duration || 300,
   );
+
+  const handleWeekChange = useWeekChange({
+    currentDate,
+    setCurrentDate,
+    setValue,
+    triggerAnimation,
+    months,
+  });
 
   const handleMonthChange = useMonthChange({
     currentDate,
@@ -50,6 +59,7 @@ export const FullCalendar = ({ events, config }: FullCalendarProps) => {
         value={value}
         setValue={setValue}
         isAnimating={isAnimating}
+        handleWeekChange={handleWeekChange}
         handleMonthChange={handleMonthChange}
         handleYearChange={handleYearChange}
         handleToday={handleToday}

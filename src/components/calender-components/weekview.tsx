@@ -1,8 +1,8 @@
-import { Button } from "@components/ui/button";
+import { Button } from "@/ui/button";
 import EventModal, {
   ColorScheme,
-} from "@shadcn-fullcalender/event-components/eventmodal";
-import { Event } from "@shadcn-fullcalender/types/event";
+} from "@/components/event-components/eventmodal";
+import { FullCalendarEvent } from "@/types/event";
 import {
   addDays,
   areIntervalsOverlapping,
@@ -13,6 +13,7 @@ import {
   isToday,
   startOfWeek,
 } from "date-fns";
+import React from "react";
 
 export const calendarEvents: CalendarEvent[] = [
   {
@@ -76,7 +77,7 @@ export const calendarEvents: CalendarEvent[] = [
 
 interface WeekViewProps {
   currentDate: Date;
-  events: Event[];
+  events: FullCalendarEvent[];
 }
 
 export function WeekView({ currentDate, events }: WeekViewProps) {
@@ -84,7 +85,7 @@ export function WeekView({ currentDate, events }: WeekViewProps) {
   const weekNumber = getISOWeek(currentDate);
   const firstWeekDay = startOfWeek(currentDate, { weekStartsOn: 1 });
   const weekDays = Array.from({ length: 7 }).map((_, i) =>
-    addDays(firstWeekDay, i)
+    addDays(firstWeekDay, i),
   );
 
   // const mappedEvents: CalendarEvent[] = events.map(({eventname: title, description, startdate, starttime, enddate, endtime, ...rest}) => ({
@@ -344,13 +345,13 @@ export function DayView({ events = [], day }: DayViewProps) {
   const dayAsString = format(day, "E");
   const dayInTheMonth = format(day, "d");
   const dayEvents = events.filter((event) => isSameDay(event.from, day));
-  const eventsWithOverlap = dayEvents.map((event, ind) => {
+  const eventsWithOverlap = dayEvents.map((event) => {
     const overlapingEvents =
       dayEvents.filter((evt) =>
         areIntervalsOverlapping(
           { start: evt.from, end: evt.to },
-          { start: event.from, end: event.to }
-        )
+          { start: event.from, end: event.to },
+        ),
       ) || [];
     return { event, overlapingEvents };
   }, {});
@@ -398,7 +399,7 @@ export function DayView({ events = [], day }: DayViewProps) {
                     title === event.title &&
                     description === event.description &&
                     from === event.from &&
-                    to === event.to
+                    to === event.to,
                 )}
               />
             }
@@ -412,8 +413,8 @@ export function DayView({ events = [], day }: DayViewProps) {
               colorScheme: (event.category === "purple"
                 ? "red"
                 : event.category === "yellow"
-                ? "default"
-                : event.category) as ColorScheme,
+                  ? "default"
+                  : event.category) as ColorScheme,
             }}
           />
         ))}

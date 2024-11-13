@@ -10,8 +10,45 @@ To get started with the Full Calendar component, ensure you have the necessary d
 
 ## Usage
 
-1. Import the necessary components in your application.
-2. Use the Full Calendar component in your page.
+```
+npm install @deiondz/shadcn-fullcalendar
+```
+
+Minimal implementation in `src/index.tsx`
+
+```
+import { newevents } from "@/data/events";
+import { FullCalendar } from "@deiondz/fullcalendar";
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+function App() {
+  return (
+    <div className="container mx-auto">
+      <div className="grid grid-cols-1">
+        <Fullcalendar
+          events={newevents}
+          config={{
+            addEventConfig: {
+              variant: "primary", // Default variant (can be 'primary', 'secondary', etc.)
+              buttonText: "Add Event", // Default button text
+              formTitle: "Create a New Event", // Default form title
+              formDescription: "Testing", // Default form description
+              icon: undefined, // Custom icon for the button, if needed
+              customForm: undefined, // Custom form component, if needed
+            },
+            animationConfig: {
+              duration: 300, // Default animation duration in milliseconds
+            },
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
+```
 
 ## Contributing
 
@@ -23,7 +60,7 @@ If you have any questions or suggestions, feel free to reach out on Twitter [@De
 
 ## Customization
 
-You can customize the Full Calendar component by creating a config file and adding it to the component. 
+You can customize the Full Calendar component by creating a config file and adding it to the component.
 
 ### Config File Options
 

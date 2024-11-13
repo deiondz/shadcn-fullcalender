@@ -1,15 +1,47 @@
 {
-  "name": "oasis",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@deiondz/shadcn-fullcalendar",
+  "version": "1.0.1",
+  "description": "Full Calendar build with shadcn/ui",
+  "homepage": "https://github.com/deiondz/shadcn-fullcalender",
+  "author": "deiondz <example@mail.com> (https://github.com/deiondz/shadcn-fullcalender)",
+  "repository": {
+    "url": "git+https://github.com/deiondz/shadcn-fullcalender",
+    "type": "git"
+  },
+  "private": false,
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "dev": "vite --config vite.config.ts --port 3000",
+    "build": "tsc -b && vite build --config vite.config.ts"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "cmdk": "^1.0.0",
+    "iconsax-react": "^0.0.8",
+    "lucide-react": "^0.441.0",
+    "next-themes": "^0.4.3",
+    "react-day-picker": "^9.1.3",
+    "react-hook-form": "^7.53.0"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18",
     "@hookform/resolvers": "^3.9.0",
+    "zod": "^3.23.8",
+    "vaul": "^0.9.3",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
@@ -39,37 +71,29 @@
     "@radix-ui/react-toggle-group": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "cmdk": "^1.0.0",
-    "date-fns": "^4.0.0",
-    "dayjs": "^1.11.13",
-    "embla-carousel-react": "^8.3.0",
-    "iconsax-react": "^0.0.8",
-    "input-otp": "^1.2.4",
-    "jotai": "^2.9.3",
-    "lucide-react": "^0.441.0",
-    "next": "^15.0.0",
-    "next-themes": "^0.3.0",
-    "nextjs-toploader": "^3.6.15",
-    "react": "^18",
-    "react-day-picker": "^9.1.3",
-    "react-dom": "^18",
-    "react-hook-form": "^7.53.0",
-    "react-phone-number-input": "^3.4.8",
-    "react-resizable-panels": "^2.1.3",
-    "recharts": "^2.12.7",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "vaul": "^0.9.3",
-    "zod": "^3.23.8"
+    "date-fns": "^4.0.0",
+    "dayjs": "^1.11.13"
   },
   "devDependencies": {
+    "@eslint/js": "^9.10.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.10.0",
+    "eslint-plugin-react-hooks": "5.1.0-rc-fb9a90fa48-20240614",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "globals": "^15.9.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "typescript-eslint": "^8.4.0",
+    "vite": "^5.4.11",
+    "vite-plugin-dts": "^4.3.0",
+    "vite-tsconfig-paths": "^5.0.1"
   }
 }

@@ -78,6 +78,19 @@ export const newevents = [
         "colorScheme": "blue" // Added color scheme
     },
     {
+        "eventname": "#2 Annual Meetup",
+        "name": "John Smith",
+        "description": "A gathering for all members.",
+        "startdate": "2024-11-05",
+        "starttime": "13:00",
+        "enddate": "2024-11-05",
+        "endtime": "15:00",
+        "phonenumber": 9876543210,
+        "email": "johnsmith@example.com",
+        "hall": "grand_ballroom",
+        "colorScheme": "blue" // Added color scheme
+    },
+    {
         "eventname": "Tech Conference",
         "name": "Jane Doe",
         "description": "Conference discussing latest tech trends.",

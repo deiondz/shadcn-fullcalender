@@ -77,7 +77,7 @@ export const renderDaysInMonth = ({
                                     <EventModal
                                         eventdetails={eventsForDay[0]}
                                     />
-                                    {eventsForDay.length > 2 && (
+                                    {eventsForDay.length > 1 && (
                                         <ListAllEvents
                                             view="day"
                                             date={day}

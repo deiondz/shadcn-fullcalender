@@ -11,6 +11,7 @@ import { useToday } from "./hooks/useToday";
 import { useYearChange } from "./hooks/useYearChange";
 import { CalendarProps } from "./types/event";
 import { TabTypes } from "./types/tabs";
+import { useWeekChange } from "./hooks/useWeekChange";
 
 
 const FullCalender = ({ events, config }: CalendarProps) => {
@@ -21,6 +22,13 @@ const FullCalender = ({ events, config }: CalendarProps) => {
     const [value, setValue] = useState<string>("");
     const { isAnimating, triggerAnimation } = useAnimationTrigger(config?.animationConfig?.duration || 300);
 
+    const handleWeekChange = useWeekChange({
+        currentDate,
+        setCurrentDate,
+        setValue,
+        triggerAnimation,
+        months,
+    });
 
     const handleMonthChange = useMonthChange({
         currentDate,
@@ -53,6 +61,7 @@ const FullCalender = ({ events, config }: CalendarProps) => {
                 value={value}
                 setValue={setValue}
                 isAnimating={isAnimating}
+                handleWeekChange={handleWeekChange}
                 handleMonthChange={handleMonthChange}
                 handleYearChange={handleYearChange}
                 handleToday={handleToday}

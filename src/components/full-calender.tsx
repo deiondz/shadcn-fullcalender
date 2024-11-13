@@ -7,11 +7,11 @@ import { useAnimationTrigger } from "../hooks/useAnimationTrigger";
 import { useMonthChange } from "../hooks/useMonthChange";
 import { useToday } from "../hooks/useToday";
 import { useYearChange } from "../hooks/useYearChange";
-import { CalendarProps } from "../types/event";
+import { FullCalendarProps } from "../types/event";
 import { TabTypes } from "../types/tabs";
 import React from "react";
 
-const FullCalender = ({ events, config }: CalendarProps) => {
+export const FullCalendar = ({ events, config }: FullCalendarProps) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [activeTab, setActiveTab] = useState<TabTypes>("month"); // Default to "month"
 
@@ -64,5 +64,3 @@ const FullCalender = ({ events, config }: CalendarProps) => {
     </div>
   );
 };
-
-export default FullCalender;

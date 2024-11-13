@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useToast } from "@/hooks/use-toast"
+import { useToast } from "@/hooks/use-toast";
 import {
   Toast,
   ToastClose,
@@ -8,10 +8,11 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
-} from "@shadcn-fullcalender/ui/toast"
+} from "@/ui/toast";
+import React from "react";
 
 export function Toaster() {
-  const { toasts } = useToast()
+  const { toasts } = useToast();
 
   return (
     <ToastProvider>
@@ -27,9 +28,9 @@ export function Toaster() {
             {action}
             <ToastClose />
           </Toast>
-        )
+        );
       })}
       <ToastViewport />
     </ToastProvider>
-  )
+  );
 }

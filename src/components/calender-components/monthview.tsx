@@ -1,5 +1,5 @@
 import { daysOfWeek } from "@/constants";
-import { Event } from "@/types/event";
+import { FullCalendarEvent } from "@/types/event";
 import { renderDaysInMonth } from "@/utils/day-render";
 import { renderDaysOfWeek } from "@/utils/week-render";
 import { getDay, startOfMonth, startOfWeek } from "date-fns";
@@ -7,7 +7,7 @@ import React from "react";
 
 interface MonthViewProps {
   currentDate: Date;
-  events: Event[];
+  events: FullCalendarEvent[];
 }
 
 export function MonthView({ currentDate, events }: MonthViewProps) {

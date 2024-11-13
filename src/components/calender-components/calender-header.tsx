@@ -8,7 +8,7 @@ import { Tabs } from "./tabs";
 import { YearHeader } from "./yearheader";
 import { TabTypes } from "@/types/tabs";
 import React from "react";
-import { CalendarProps } from "@/types/event";
+import { FullCalendarProps } from "@/types/event";
 import { Button } from "@/ui/button";
 // import { CalendarProps } from "@shadcn-fullcalender/types/event";
 // import { Button } from "@shadcn-fullcalender/ui/button";
@@ -24,7 +24,7 @@ export interface CalenderHeaderProps {
   handleMonthChange: (action: "prev" | "next" | string) => void;
   handleYearChange: (action: "prev" | "next" | number) => void;
   handleToday: () => void;
-  config?: CalendarProps["config"];
+  config?: FullCalendarProps["config"];
 }
 
 const CalenderHeader = (props: CalenderHeaderProps) => {

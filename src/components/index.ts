@@ -1,3 +1,3 @@
-import Vokarenda from "./full-calender";
+import { FullCalendar } from "./full-calender";
 
-export { Vokarenda };
+export { FullCalendar };

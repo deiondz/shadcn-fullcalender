@@ -1,11 +1,11 @@
 import { Card } from "@/ui/card";
 import { MonthView } from "./monthview";
 import YearView from "./yearview";
-import { CalendarProps } from "@/types/event";
+import { FullCalendarProps } from "@/types/event";
 import { TabTypes } from "@/types/tabs";
 import React from "react";
 
-export interface ViewsProps extends CalendarProps {
+export interface ViewsProps extends FullCalendarProps {
   activeTab: TabTypes;
   isAnimating: boolean;
   currentDate: Date;

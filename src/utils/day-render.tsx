@@ -1,14 +1,14 @@
 import { addDays, format, parseISO } from "date-fns";
 
 import React from "react";
-import { Event } from "@/types/event";
+import { FullCalendarEvent } from "@/types/event";
 import EventModal from "@/components/event-components/eventmodal";
 import AddEvent from "@/components/calender-components/add-event";
 import ListAllEvents from "@/components/event-components/listallevents";
 
 interface RenderDaysInMonthProps {
   currentDate: Date;
-  events: Event[];
+  events: FullCalendarEvent[];
   startWeek: Date;
   daysOfWeek: string[];
 }

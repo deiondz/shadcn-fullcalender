@@ -1,5 +1,5 @@
 import ListAllEvents from "@/components/event-components/listallevents";
-import { Event } from "@/types/event";
+import { FullCalendarEvent } from "@/types/event";
 import {
   addDays,
   eachDayOfInterval,
@@ -13,7 +13,7 @@ import React from "react";
 
 interface YearViewProps {
   currentDate: Date; // Current date
-  events: Event[]; // Array of events
+  events: FullCalendarEvent[]; // Array of events
 }
 
 const YearView: React.FC<YearViewProps> = ({ currentDate, events }) => {
@@ -82,7 +82,7 @@ const YearView: React.FC<YearViewProps> = ({ currentDate, events }) => {
   const getEventsForDate = (date: Date) => {
     const formattedDate = format(date, "yyyy-MM-dd");
 
-    return events.filter((event: Event) => {
+    return events.filter((event: FullCalendarEvent) => {
       const startDate = format(parseISO(event.startdate), "yyyy-MM-dd");
       const endDate = format(parseISO(event.enddate), "yyyy-MM-dd");
 
@@ -123,8 +123,8 @@ const YearView: React.FC<YearViewProps> = ({ currentDate, events }) => {
                     eventsForDay={eventsForDate}
                     key={date.toString()}
                     eventsForDate={eventsForDate}
-                    isToday={isToday as any}
-                    isCurrentMonth={isCurrentMonth as any}
+                    isToday={Boolean(isToday)}
+                    isCurrentMonth={Boolean(isCurrentMonth)}
                     date={date}
                     index={index}
                   />

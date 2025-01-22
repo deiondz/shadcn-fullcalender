@@ -31,16 +31,6 @@ export function MonthHeader(props: any) {
           props.handleMonthChange(e);
         }}
       />
-      {/* <Combobox
-        value={props.value}
-        setValue={props.setValue}
-        items={months}
-        placeholder={format(props.currentDate, "Y")}
-        isAnimating={props.isAnimating}
-        onSelect={(e: any) => {
-          props.handleMonthChange(e);
-        }}
-      /> */}
       <YearBox
         isAnimating={props.isAnimating}
         currentYear={props.currentDate.getFullYear()}

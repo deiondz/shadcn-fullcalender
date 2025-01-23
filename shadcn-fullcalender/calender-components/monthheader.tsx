@@ -1,10 +1,10 @@
 "use client";
-import { YearBox } from "./yearbox";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
-import { Combobox } from "./combobox";
-import { format } from "date-fns";
 import { months } from "@shadcn-fullcalender/constants";
 import { Button } from "@shadcn-fullcalender/ui/button";
+import { format, getISOWeek } from "date-fns";
+import { Combobox } from "./combobox";
+import { YearBox } from "./yearbox";
 
 export function MonthHeader(props: any) {
 
@@ -18,6 +18,9 @@ export function MonthHeader(props: any) {
       >
         <ChevronLeftIcon className="h-4 w-4" />
       </Button>
+      {props.isShowWeekButton && <Button className="w-auto" variant={'ghost'}>
+        Week {getISOWeek(props.currentDate)}
+      </Button>}
       <Combobox
         value={props.value}
         setValue={props.setValue}

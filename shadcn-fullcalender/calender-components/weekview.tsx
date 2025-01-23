@@ -205,7 +205,7 @@ export function AllDayEventView({
   return (
     <div className="min-h-[24px] px-1">
       <button
-        className={`bg-yellow-200 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded cursor-pointer transition-colors duration-200 hover:bg-opacity-40 dark:hover:bg-opacity-40 min-h-[24px] text-xs border-x-0 ${
+        className={`w-full bg-yellow-200 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded cursor-pointer transition-colors duration-200 hover:bg-opacity-40 dark:hover:bg-opacity-40 min-h-[24px] text-xs border-x-0 ${
           isLast ? "border-r-4 border-r-black/70 dark:border-r-white/50" : ""
         }`}
         type="button"

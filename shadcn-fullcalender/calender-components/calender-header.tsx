@@ -33,6 +33,7 @@ const CalenderHeader = (props: CalenderHeaderProps) => {
             {isWeekView && (
                 <div className="flex flex-col sm:flex-row justify-between items-center mb-4 space-y-4 sm:space-y-0">
                     <MonthHeader
+                        isShowWeekButton={true}
                         currentDate={props.currentDate}
                         setCurrentDate={props.setCurrentDate}
                         isAnimating={props.isAnimating}
